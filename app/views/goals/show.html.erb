@@ -1,0 +1,34 @@
+<div class="section">
+<h2><%= @goal.title %></h2>
+
+
+<p>
+  <strong>Reward:</strong>
+  <%= @goal.reward %>
+</p>
+
+<p>
+  <strong>Reward Link:</strong>
+  <%= @goal.reward_link %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @goal.created_at.strftime("%b %d, %Y") %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @goal.due.strftime("%b %d, %Y") %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @goal.completed %>
+</p>
+
+<%= link_to 'Back', goals_path %> |
+<%= link_to 'Delete', @goal, method: :delete, data: { confirm: 'Are you sure you with to abandon your goal and have your deposit refunded?' } %> |
+<%= link_to 'Complete', completed_goal_path, data: { confirm: 'Please confirm your goal is complete' } %>
+
+</div>

@@ -1,0 +1,20 @@
+<%= simple_form_for(@setting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <h5>Goal:</h5>
+    <p><%= @goal.title %></p>
+    <h5>Reward:</h5>
+    <p><%= @goal.reward %></p>
+    <h5>Mailing Address:</h5>
+    <%= f.input :mailing_address %>
+    <%= f.input :suburb %>
+    <%= f.input :state %>
+    <%= f.input :postcode %>
+    <%= f.input :country %></p>
+  </div>
+  <div class="form-actions">
+    <%= link_to 'Complete', completed_goal_path(@goal), data: { confirm: 'Please confirm your goal is complete' } %>
+    <%= f.button :submit, "Complete!" %>
+  </div>
+<% end %>

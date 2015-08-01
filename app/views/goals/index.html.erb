@@ -1,0 +1,49 @@
+
+<div class="section">
+<h2 class="goals-header">Goals Dashboard</h2>
+
+<div class="text-center">
+  <%= link_to 'New Goal', new_goal_path, class: "btn btn-green btn-large" %>
+</div>
+</div>
+
+<div class="section">
+<h2>Open Goals</h2>
+
+<div class="row">
+  <% @open_goals.each do |goal| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= link_to image_tag("http://makedogsyourlife.com/wp-content/themes/OptimizePress/timthumb.php?src=http://makedogsyourlife.com/wp-content/uploads/2012/06/goals.jpg&h=200&w=200&zc=1"), goal %>
+      <div class="caption">
+        <p><strong><%= goal.title %></strong></p>
+        <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+
+
+<div class="section">
+<h2>Completed Goals</h2>
+
+<div class="row">
+  <% @completed_goals.each do |goal| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= link_to image_tag("http://makedogsyourlife.com/wp-content/themes/OptimizePress/timthumb.php?src=http://makedogsyourlife.com/wp-content/uploads/2012/06/goals.jpg&h=200&w=200&zc=1"), goal %>
+      <div class="caption">
+        <p><strong><%= goal.title %></strong></p>
+        <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+</div>
+
+<br>

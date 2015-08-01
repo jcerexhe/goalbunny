@@ -1,0 +1,12 @@
+<%= simple_form_for(@goal) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <p><strong>Due:</strong></p>
+    <%= f.date_field :due %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Submit Changes!" %>
+  </div>
+<% end %>

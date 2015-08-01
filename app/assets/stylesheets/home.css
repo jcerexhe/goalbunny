@@ -1,0 +1,13 @@
+body {
+	background-image: url("http://res.cloudinary.com/cerexhe/image/upload/v1438337585/TZ9ZLRTI63_qhwvyz.jpg");
+	background-size: cover; 	
+	background-repeat: no-repeat;
+}
+
+.section {
+	border-radius: 15px;
+	background-color: white;
+	padding: 20px;
+	opacity: 0.9;
+	margin-top: 30px;
+}

@@ -1,0 +1,17 @@
+<div class="text-center">
+  <%= simple_form_for(@goal) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs goal-create-forms">
+      <%= f.input :title %>
+      <%= f.input :reward, placeholder: 'Reward name'%>
+      <%= f.input :reward_link, placeholder: 'Paste reward link'%>
+      <%= f.input :reward_cost, placeholder: 'Cost + shipping' %>
+      <label><span>Due date</span></label>
+      <%= f.date_field :due %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Next", class: "btn" %>
+    </div>
+  <% end %>
+</div>

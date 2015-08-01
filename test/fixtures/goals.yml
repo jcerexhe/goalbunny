@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: goals
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  title       :string
+#  reward      :string
+#  reward_cost :integer
+#  created     :datetime
+#  due         :date
+#  completed   :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  reward_link :text
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  title: MyString
+  reward: MyString
+  reward_cost: 1
+  created: 2015-07-11 18:49:53
+  due: 2015-07-11 18:49:53
+  completed_date_time: 2015-07-11 18:49:53
+  completed: false
+
+two:
+  user_id: 
+  title: MyString
+  reward: MyString
+  reward_cost: 1
+  created: 2015-07-11 18:49:53
+  due: 2015-07-11 18:49:53
+  completed_date_time: 2015-07-11 18:49:53
+  completed: false

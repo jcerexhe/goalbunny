@@ -1,0 +1,31 @@
+<div class="section">
+
+<h5>Mailing address:</h5>
+<p><%= @setting.mailing_address %><br>
+<%= @setting.suburb %><br>
+<%= @setting.state %>&nbsp;
+<%= @setting.postcode %>&nbsp;
+<%= @setting.country %></p>
+
+<h5>Goal cancellation refund time delay:</h5>
+<p><%= @setting.goal_cancellation_refund_time_delay_in_days %> Days</p>
+
+<h5>Share completed goals?:</h5>
+<p><%= @setting.share_completed_goals? %></p>
+
+<h5>Dream:</h5>
+<p><%= @setting.dream %></p>
+
+<h5>Age:</h5>
+<p><%= @setting.age %></p>
+
+<h5>Occupation:</h5>
+<p><%= @setting.occupation %></p>
+
+<h5>Sex:</h5>
+<p><%= @setting.sex %></p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Goals', goals_path %>
+
+</div>

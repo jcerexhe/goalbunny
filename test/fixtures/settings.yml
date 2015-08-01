@@ -1,0 +1,42 @@
+# == Schema Information
+#
+# Table name: settings
+#
+#  id                                          :integer          not null, primary key
+#  mailing_address                             :text
+#  goal_cancellation_refund_time_delay_in_days :integer
+#  share_completed_goals?                      :boolean
+#  dream                                       :text
+#  age                                         :integer
+#  occupation                                  :string
+#  sex                                         :string
+#  user_id                                     :integer
+#  created_at                                  :datetime         not null
+#  updated_at                                  :datetime         not null
+#  suburb                                      :string
+#  state                                       :string
+#  postcode                                    :string
+#  country                                     :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mailing_address: MyText
+  goal_cancellation_refund_time_delay_in_days: 1
+  share_completed_goals?: false
+  dream: MyText
+  age: 1
+  occupation: MyString
+  sex: MyString
+  user_id: 
+
+two:
+  mailing_address: MyText
+  goal_cancellation_refund_time_delay_in_days: 1
+  share_completed_goals?: false
+  dream: MyText
+  age: 1
+  occupation: MyString
+  sex: MyString
+  user_id: 

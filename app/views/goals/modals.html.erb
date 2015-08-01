@@ -1,0 +1,203 @@
+<dialog id="window">  
+  <h3>New Goal</h3>  
+  <%= render 'goals/form' %> 
+  <button id="exit">Cancel</button>  
+</dialog>  
+<div class="text-center">
+  <button class="btn btn-large btn-green" id="show">New Goal</button>
+</div>
+
+<form action="/charges?amount=100&goal_id=<%= @goal.id %>" method="POST">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-amount="100"
+    data-name="Goal Bounty"
+    data-description="<%= @goal.title %>"
+    data-image="/128x128.png"
+    data-email="<%= current_user.email %>"
+    data-currency="aud"
+    data-panel-label="Payment"
+    data-label="New Goal">
+  </script>
+</form>
+
+
+<!-- Button trigger modal -->
+<div class="text-center">
+  <button type="button" class="btn btn-large btn-green" data-toggle="modal" data-target="#myModal">
+    New Goal (stripe)
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#create_goal_tab" aria-controls="create_goal_tab" role="tab" data-toggle="tab">Step 1</a></li>
+        <li role="presentation"><a href="#payment_tab" aria-controls="payment_tab" role="tab" data-toggle="tab">Step 2</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="create_goal_tab">
+          <form>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" id="myModalLabel">New Goal</h4>
+          </div>
+          <div class="modal-body">
+            <form novalidate="novalidate" class="simple_form new_goal" id="new_goal" action="/goals" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="kG7WYjobwmiVEb0Q47vhkfijkAmWHVXdwTm7SevR91rKcR6Dg9LP5mvSkZWKfRdLtPudB7sUwg0KlC9t//rHvg==">
+  
+            <!-- Step 1 -->
+            <div class="form-inputs goal-create-forms">
+              <div class="input string required goal_title">
+                <label class="string required" for="goal_title"><abbr title="required">*</abbr> Title</label>
+                <input class="string required" type="text" name="goal[title]" id="goal_title">
+              </div>
+              <div class="input string required goal_reward">
+                <label class="string required" for="goal_reward"><abbr title="required">*</abbr> Reward</label>
+                <input class="string required" placeholder="Give your reward a name" type="text" name="goal[reward]" id="goal_reward">
+              </div>
+              <div class="input text optional goal_reward_link">
+                <label class="text optional" for="goal_reward_link">Reward link</label>
+                <textarea class="text optional" placeholder="Paste reward link" name="goal[reward_link]" id="goal_reward_link"></textarea>
+              </div>
+              <div class="input integer required goal_reward_cost">
+                <label class="integer required" for="goal_reward_cost"><abbr title="required">*</abbr> Reward cost</label>
+                <input class="numeric integer required" placeholder="Cost + shipping" type="number" step="1" name="goal[reward_cost]" id="goal_reward_cost">
+              </div>
+              <label for="goal_due">Due date</label>
+              <input type="date" name="goal[due]" id="goal_due">
+            </div>
+            <div class="modal-footer">
+              <div class="form-actions">
+                <input type="submit" name="commit" value="Create!" class="btn">
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="payment_tab">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title" id="myModalLabel">Payment for ___</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Step 2 -->
+            <form action="/charges?amount=100&goal_id=<%= @goal.id %>" method="POST" id="payment-form">
+              <input name="utf8" type="hidden" value="&#x2713;" />
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+              <span class="payment-errors"></span>
+
+              <div class="form-row">
+                <label>
+                  <span>Card Number</span>
+                  <input type="text" size="20" data-stripe="number"/>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  <span>CVC</span>
+                  <input type="text" size="4" data-stripe="cvc"/>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  <span>Expiration (MM/YYYY)</span>
+                  <input type="text" size="2" data-stripe="exp-month"/>
+                </label>
+                <span> / </span>
+                <input type="text" size="4" data-stripe="exp-year"/>
+              </div>
+
+              <div class="modal-footer">
+                <button type="submit">Submit Payment</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+(function() {  
+    var dialog = document.getElementById('window');  
+    document.getElementById('show').onclick = function() {  
+        dialog.show();  
+    };  
+    document.getElementById('exit').onclick = function() {  
+        dialog.close();  
+    };  
+})();
+</script>
+
+<script type="text/javascript">
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+})</script>
+
+<!-- Form big -->
+
+  <script type="text/javascript">jQuery(function($) {
+    $('#payment-form').submit(function(event) {
+      var $form = $(this);
+
+      // Disable the submit button to prevent repeated clicks
+      $form.find('button').prop('disabled', true);
+
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from submitting with the default action
+      return false;
+    });
+  });
+  </script>
+
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+  // ...
+</script>
+ 
+<script type="text/javascript">function stripeResponseHandler(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.get(0).submit();
+  }
+};</script>
+
+<!-- Tabs -->
+<script type="text/javascript">
+$('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})</script>
+<script type="text/javascript">
+$('#myTabs a[href="#profile"]').tab('show') // Select tab by name
+$('#myTabs a:first').tab('show') // Select first tab
+$('#myTabs a:last').tab('show') // Select last tab
+$('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)
+</script>

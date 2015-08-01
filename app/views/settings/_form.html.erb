@@ -1,0 +1,26 @@
+<%= simple_form_for(@setting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :mailing_address, label: "Street Address" %>
+        <%= f.input :suburb %>
+        <%= f.input :state, collection: ['ACT', 'NSW', 'QLD', 'VIC', 'SA', 'WA', 'TAS', 'NT'] %>
+        <%= f.input :postcode %>
+        <%= f.input :country, priority: ['Australia'] %>
+        <%= f.input :goal_cancellation_refund_time_delay_in_days, input_html: { value: 3 } %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :dream %>
+        <%= f.input :age %>
+        <%= f.input :occupation %>
+        <%= f.input :sex, collection: ['Male', 'Female', 'Do no wish to specify'] %>
+        <%= f.input :share_completed_goals? %>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-large solid-green" %>
+  </div>
+<% end %>

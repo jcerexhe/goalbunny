@@ -1,0 +1,110 @@
+<link rel="stylesheet" type="text/css" href="css/home.css">
+
+<div class="section">
+	<h1 class="green-text">Goal Bunny</h1>
+  <h3>Goal orientated? Ambitious? Shopaholic?</h3>
+<!--   <h4>Reward yourself with Goal Bounty</h4> -->
+  <% unless user_signed_in? %>
+    <div class="text-center">
+      <%= link_to 'Sign Up!', new_user_registration_path, class: "btn btn-large solid-green", method: :get %>
+    </div>
+  <% end %>
+</div>
+
+<div class="section">
+	<h2>How it works</h2>
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="http://makedogsyourlife.com/wp-content/themes/OptimizePress/timthumb.php?src=http://makedogsyourlife.com/wp-content/uploads/2012/06/goals.jpg&h=200&w=200&zc=1" alt="...">
+	      <div class="caption">
+	        <h5>1. Create a Goal</h5>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="https://cdn.tutsplus.com/gamedev/uploads/legacy/049_christmas_gift_ideas_for_game_developers/Gift_Ideas_for_Game_Developers_and_Game_Designers.png" alt="...">
+	      <div class="caption">
+	        <h5>2. Choose a reward from anywhere online and deposit the required cost (including shipping)</h5>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="http://www.smallbiztechnology.com/wp-content/uploads/2012/10/send-email.gif" alt="...">
+	      <div class="caption">
+	        <h5>3. We send you your reward upon completion of your goal!</h5>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<div class="section">
+	<h2>Why use Goal Bunny?</h2>
+	<p>At Goal Bunny we believe that spending money to achieve a goal is an investment in yourself. Rewarding incremental victories is a key factor in ultimate success. Put a bounty on your next goal and see it finished!</p>
+</div>  
+
+<div class="section">
+	<h2>Is your money safe?</h2>
+	<p>We will return your money anytime you wish to cancel your goal. There is a refund delay setting if you don't want to be able to cash out immediately. Most users prefer a 3 day cash return delay to help them commit to their goal.
+	<br><br>
+	However, once a goal is confirmed as completed and your reward sent, we cannot give a refund.
+	<br><br>
+	We always put our users first, so if you have any questions feel free to send us an email.</p>
+</div>           
+
+<hr>
+<footer>
+  <p style="color:white">Copyright &copy; 2015 goalbunny.com</p>
+</footer>
+
+<%# end %> 
+
+
+
+<!-- <div>
+	<h2>Our Reward Catalogue</h2>
+	<div class="row">
+	  <div class="col-md-4">
+	  	<p>(img) <br> 
+	  		Bottle of Wine <br>
+	  		$14.95</p>
+	  </div>
+	  <div class="col-md-4">
+	  	<p>(img) <br> 
+	  		Watch <br>
+	  		$99.95</p>
+	  </div>
+	  <div class="col-md-4">
+	  	<p>(img) <br> 
+	  		Lamy Pen <br>
+	  	$99.95</p>
+	  </div>
+	</div>
+</div>
+
+<div>
+	<h2>Recently Completed Goals</h2>
+	<div class="row">
+	  <div class="col-md-4">
+	  	<p>Adam <br>
+	  		Goal: Finish my essay <br>
+	  		Reward: The Da Vinci Code - Dan Brown <br>
+	  		Worth: $14.95</p>
+	  </div>
+	  <div class="col-md-4">
+	  	<p>Ashley <br>
+	  		Goal: Get a job <br>
+	  		Reward: Prada handbag <br>
+	  		Worth: $999.95</p>
+	  </div>
+	  <div class="col-md-4">
+	  	<p>Pete <br>
+	  	Goal: Complete my Phd Thesis <br>
+	  	Reward: IWC watch <br>
+	  	Worth: $7999.95</p>
+	  </div>
+	</div>
+</div>

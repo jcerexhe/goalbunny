@@ -1,0 +1,58 @@
+<table class="table table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Reward</th>
+      <th>Created</th>
+      <th>Due</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @open_goals.each do |goal| %>
+      <tr>
+        <td><%= goal.title %></td>
+        <td><%= goal.reward %></td>
+        <td><%= goal.created_at.strftime("%b %d, %Y") %></td>
+        <td><%= goal.due.strftime("%b %d, %Y") %></td>
+        <td><%= link_to 'Complete', completed_goal_path(goal), data: { confirm: 'Please confirm your goal is complete' } %></td>
+        <td><%= link_to 'Show', goal %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<table class="table table">
+  <div>
+    <table class="table table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Reward</th>
+          <th>Created</th>
+          <th>Due</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @completed_goals.each do |goal| %>
+          <tr>
+            <td><%= goal.title %></td>
+            <td><%= goal.reward %></td>
+            <td><%= goal.created_at.strftime("%b %d, %Y") %></td>
+            <td><%= goal.due.strftime("%b %d, %Y") %></td>
+            <td><%= link_to 'Show', goal %></td>
+            <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+            <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure you with to abandon your goal and have your deposit refunded?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</table>
+

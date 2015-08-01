@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: cerexhe
+  api_key: '229244172116892'
+  api_secret: NurBUmRdwjMoFeDqMFrY1vu1774
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: cerexhe
+  api_key: '229244172116892'
+  api_secret: NurBUmRdwjMoFeDqMFrY1vu1774
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: cerexhe
+  api_key: '229244172116892'
+  api_secret: NurBUmRdwjMoFeDqMFrY1vu1774
+  enhance_image_tag: true
+  static_image_support: false
