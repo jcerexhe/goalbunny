@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
   resources :goals do
     member do 
       get :completed 
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
   get 'settings', to: 'settings#show'
 
   devise_for :users
+
+  patch 'approve_user', to: 'users#approve'
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

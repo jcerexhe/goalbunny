@@ -178,6 +178,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rolify (4.0.0)
     ruby-progressbar (1.7.5)
     sass (3.4.15)
     sass-rails (5.0.3)
@@ -245,6 +246,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.1)
   rails_best_practices
+  rolify
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form

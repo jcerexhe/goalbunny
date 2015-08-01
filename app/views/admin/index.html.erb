@@ -1,0 +1,96 @@
+<div class="section">
+
+
+<h3>User Approvals</h3>
+<%= link_to "All Users", :action => "index" %>
+|
+<%= link_to "Users awaiting approval", :action => "index", :approved => "false" %>
+
+<div>
+	<table>
+	  <% @users.each do |user| %>
+	    <tr>
+	      <td><%= user.email %></td>
+	      <td><%= user.approved %></td>
+	      <td><%= link_to 'Approve', approve_user_path(user: user.id), method: :patch %></td>
+	    </tr>
+	  <% end %>
+	</table>
+</div>
+
+<div>
+	<h3>Open Goals</h3>
+	<table class="table table">
+	  <thead>
+	    <tr>
+	    	<th>User ID</th>
+	      <th>Title</th>
+	      <th>Reward</th>
+	      <th>Reward Cost</th>
+	      <th>Created</th>
+	      <th>Due</th>
+	      <th>Paid?</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @open_goals.each do |goal| %>
+	      <tr>
+	      	<td><%= goal.user_id %></td>
+	        <td><%= goal.title %></td>
+	        <td><%= goal.reward %></td>
+	        <td><%= goal.reward_cost %></td>
+	        <td><%= goal.created_at.strftime("%b %d, %Y") %></td>
+	        <td><%= goal.due.strftime("%b %d, %Y") %></td>
+	        <td><%= goal.paid %></td>
+	        <td><%= link_to 'Complete', completed_goal_path(goal), data: { confirm: 'Please confirm your goal is complete' } %></td>
+	        <td><%= link_to 'Show', goal %></td>
+	        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+	        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Confirm deletion' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<h3>Completed Goals</h3>
+  <table class="table table">
+    <thead>
+      <tr>
+      	<th>User ID</th>
+        <th>Title</th>
+        <th>Reward</th>
+        <th>Reward Cost</th>
+	      <th>Created</th>
+	      <th>Due</th>
+	      <th>Paid?</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @completed_goals.each do |goal| %>
+        <tr>
+        	<td><%= goal.user_id %></td>
+          <td><%= goal.title %></td>
+          <td><%= goal.reward %></td>
+          <td><%= goal.reward_cost %></td>
+	        <td><%= goal.created_at.strftime("%b %d, %Y") %></td>
+	        <td><%= goal.due.strftime("%b %d, %Y") %></td>
+	        <td><%= goal.paid %></td>
+          <td><%= link_to 'Show', goal %></td>
+          <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+          <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Confirm deletion' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+</table>
+</div>
+
+
+
+
+
+</div>

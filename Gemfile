@@ -19,7 +19,7 @@ gem 'stripe'
 gem 'country_select'
 gem 'cloudinary'
 gem 'omniauth-facebook'
-
+gem "rolify"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
