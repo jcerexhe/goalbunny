@@ -1,5 +1,6 @@
 class ChangeDueTypeInGoalsToDate < ActiveRecord::Migration
   def change
-  	change_column :goals, :due, :date
+  	remove_column :goals, :due, :datetime
+  	add_column :goals, :due, :date
   end
 end
