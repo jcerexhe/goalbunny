@@ -36,6 +36,7 @@
 	top:0;
 	width:100%;
 	font-size: 18px;
+	border-color: #3CB371;
 }
 
 .navbar-brand {
@@ -73,12 +74,17 @@ h5, h6, p, ol, li {
 	font-family: 'Open Sans', sans-serif;	
 }
 
+/*img {
+	float: center;
+}*/
+
 /*basics customised*/
 
 h1 {
 	
 	font-size:90px;
 	font-weight: bold;
+	font-family: 'Pacifico', cursive;
 }
 
 h2 {

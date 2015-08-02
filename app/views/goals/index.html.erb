@@ -14,9 +14,9 @@
   <% @open_goals.each do |goal| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <%= link_to image_tag("http://3.bp.blogspot.com/-oMaOGeRAS9E/UmFL_iCe2BI/AAAAAAAAB10/CNZ6TqEbZvo/s200-c/picture.gif"), goal %>
+      <img src="<%= goal.image %>" alt="" width="200" height="300">
       <div class="caption">
-        <p><strong><%= goal.title %></strong></p>
+        <p><strong><%= link_to goal.title, goal %></strong></p>
         <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
       </div>
     </div>
@@ -25,7 +25,6 @@
 </div>
 </div>
 
-
 <div class="section">
 <h2>Completed Goals</h2>
 
@@ -33,9 +32,9 @@
   <% @completed_goals.each do |goal| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <%= link_to image_tag("http://3.bp.blogspot.com/-oMaOGeRAS9E/UmFL_iCe2BI/AAAAAAAAB10/CNZ6TqEbZvo/s200-c/picture.gif"), goal %>
+      <img src="<%= goal.image %>" alt="" width="200" height="300">
       <div class="caption">
-        <p><strong><%= goal.title %></strong></p>
+        <p><strong><%= link_to goal.title, goal %> </strong></p>
         <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
       </div>
     </div>

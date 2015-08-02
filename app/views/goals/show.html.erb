@@ -1,6 +1,9 @@
 <div class="section">
 <h2><%= @goal.title %></h2>
 
+<p>
+  <img src="<%= @goal.image %>" alt="" width="200" height="300">
+</p>
 
 <p>
   <strong>Reward:</strong>
@@ -20,11 +23,6 @@
 <p>
   <strong>Due:</strong>
   <%= @goal.due.strftime("%b %d, %Y") %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @goal.completed %>
 </p>
 
 <%= link_to 'Back', goals_path %> |

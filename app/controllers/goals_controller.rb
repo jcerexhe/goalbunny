@@ -8,6 +8,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new
     @completed_goals = @goals.completed.ordered_by_due_date
     @open_goals = @goals.not_completed.ordered_by_due_date
+    # @image = @goals.image_url
   end
 
   def completed
@@ -81,6 +82,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:title, :reward, :reward_cost, :due, :completed)
+      params.require(:goal).permit(:title, :reward, :item_details, :reward_link, :image, :reward_cost, :due, :completed)
     end
 end

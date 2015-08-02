@@ -19,7 +19,7 @@ class Goal < ActiveRecord::Base
   belongs_to :user
   has_one :payment
 
-  validates :title, :reward, :reward_cost, presence: true
+  validates :title, :reward_link, :reward_cost, presence: true
 
   # after_create :
 
@@ -46,6 +46,11 @@ class Goal < ActiveRecord::Base
   def self.paid
     where(paid: true)
   end
+
+  # def self.image_url
+  #   self.image.find(params[:id])
+  # end
+  
   # validate :starts_before_ends
 
   # def starts_before_ends

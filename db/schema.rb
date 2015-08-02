@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801043210) do
+ActiveRecord::Schema.define(version: 20150802084118) do
 
   create_table "goals", force: :cascade do |t|
     t.integer  "user_id"
@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(version: 20150801043210) do
     t.datetime "created"
     t.date     "due"
     t.boolean  "completed"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "reward_link"
     t.boolean  "paid"
+    t.text     "item_details"
+    t.text     "image"
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id"

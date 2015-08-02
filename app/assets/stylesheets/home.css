@@ -1,5 +1,6 @@
 body {
-	background-image: url("http://res.cloudinary.com/cerexhe/image/upload/v1438337585/TZ9ZLRTI63_qhwvyz.jpg");
+	/*background-image: url("http://res.cloudinary.com/cerexhe/image/upload/v1438337585/TZ9ZLRTI63_qhwvyz.jpg");*/
+	background-color: #A8A8A8;
 	background-size: cover; 	
 	background-repeat: no-repeat;
 }
