@@ -1,11 +1,14 @@
-<div class="col-md-4 col-xs-6"></div>
-<div class="col-md-4 col-xs-6 section">
-<%= form_tag charges_path(amount: @goal.reward_cost/100, goal_id: @goal.id) do %>
+<div class="col-xs-12 section">
+<%= form_tag charges_path(amount: @goal.reward_cost*100, goal_id: @goal.id) do %>
   <article>
-    <h3>Goal: <%= @goal.title %></h3>
-    <p>Reward Path: <%= @goal.reward %></p>
-    <p>Amount: <%= number_to_currency(@goal.reward_cost/100) %></p> <br>
-
+    <div class="col-xs-12 col-md-4">
+      <img src="<%= @goal.image %>" alt="" width="200" height="300">
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <h3 style="text-align:left;">Goal: <%= @goal.title %></h3>
+      <p style="text-align:left;">Reward: <%= @goal.reward %></p>
+      <p style="text-align:left;">Amount: <%= number_to_currency(@goal.reward_cost/100) %></p> <br>
+    </div>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

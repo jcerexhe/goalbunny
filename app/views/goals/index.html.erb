@@ -14,10 +14,18 @@
   <% @open_goals.each do |goal| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="<%= goal.image %>" alt="" width="200" height="300">
+      <a href="/goals/<%= goal.id %>">
+      <% if goal.image %>
+        <img src="<%= goal.image %>" alt="" width="200" height="300">
+      <% else %>
+        <img src="http://placekitten.com/200/300" alt="" width="200" height="300">
+      <% end %>
+      </a>
       <div class="caption">
         <p><strong><%= link_to goal.title, goal %></strong></p>
-        <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
+        <% if goal.due %>
+          <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -32,10 +40,12 @@
   <% @completed_goals.each do |goal| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="<%= goal.image %>" alt="" width="200" height="300">
+      <a href="/goals/<%= goal.id %>"><img src="<%= goal.image %>" alt="" width="200" height="300"></a>
       <div class="caption">
         <p><strong><%= link_to goal.title, goal %> </strong></p>
-        <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
+        <% if goal.due %>
+          <p>Due: <%= goal.due.strftime("%b %d, %Y") %></p>
+        <% end %>
       </div>
     </div>
   </div>

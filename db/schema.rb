@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802084118) do
+ActiveRecord::Schema.define(version: 20150802131040) do
 
   create_table "goals", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "reward"
-    t.integer  "reward_cost"
     t.datetime "created"
     t.date     "due"
     t.boolean  "completed"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150802084118) do
     t.boolean  "paid"
     t.text     "item_details"
     t.text     "image"
+    t.decimal  "reward_cost"
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id"

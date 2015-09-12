@@ -42,7 +42,11 @@
 	        <td><%= goal.reward %></td>
 	        <td><%= goal.reward_cost %></td>
 	        <td><%= goal.created_at.strftime("%b %d, %Y") %></td>
-	        <td><%= goal.due.strftime("%b %d, %Y") %></td>
+	        <% if goal.due %>
+	        	<td><%= goal.due.strftime("%b %d, %Y") %></td>
+	        <% else %>
+	        	<td>N/A</td>
+	        <% end %>
 	        <td><%= goal.paid %></td>
 	        <td><%= link_to 'Complete', completed_goal_path(goal), data: { confirm: 'Please confirm your goal is complete' } %></td>
 	        <td><%= link_to 'Show', goal %></td>

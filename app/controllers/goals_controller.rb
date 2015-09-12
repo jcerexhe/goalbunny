@@ -14,7 +14,7 @@ class GoalsController < ApplicationController
   def completed
     @goal.update_completed
     redirect_to :back
-  end
+  end 
 
   # GET /goals/1
   # GET /goals/1.json
